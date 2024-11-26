@@ -1,0 +1,23 @@
+package ConnectorPackage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author yash
+ */
+public class ConnectionProvider {
+    public static  Connection getcon(){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ResultManagement", "root", "root");
+            return con;
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.toString());
+           return null; 
+        }
+    }
+}
